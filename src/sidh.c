@@ -9,6 +9,10 @@
 *********************************************************************************************/ 
 
 #include "random/random.h"
+#include "../tests/test_extras.h"
+
+static unsigned long long isogeny_4_time = 0;
+static unsigned long long isogeny_4_num = 0;
 
 
 static void init_basis(digit_t *gen, f2elm_t XP, f2elm_t XQ, f2elm_t XR)
@@ -90,7 +94,11 @@ int EphemeralKeyGeneration_A(const unsigned char* PrivateKeyA, unsigned char* Pu
             xDBLe(R, R, A24plus, C24, (int)(2*m));
             index += m;
         }
+        unsigned long long cycles1 = cpucycles();
         get_4_isog(R, A24plus, C24, coeff);        
+        unsigned long long cycles2 = cpucycles();
+        isogeny_4_time += (cycles2-cycles1);
+        isogeny_4_num += 1;
 
         for (i = 0; i < npts; i++) {
             eval_4_isog(pts[i], coeff);

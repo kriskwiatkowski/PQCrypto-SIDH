@@ -302,6 +302,7 @@ tests_p434: lib434 lib434comp lib434_for_KATs lib434comp_for_KATs
 	$(CC) $(CFLAGS) -L./lib434 tests/arith_tests-p434.c tests/test_extras.c -lsidh $(LDFLAGS) -o arith_tests-p434 $(ARM_SETTING)
 	$(CC) $(CFLAGS) -L./lib434 tests/test_SIDHp434.c tests/test_extras.c -lsidh $(LDFLAGS) -o sidh434/test_SIDH $(ARM_SETTING)
 	$(CC) $(CFLAGS) -L./lib434 tests/test_SIKEp434.c tests/test_extras.c -lsidh $(LDFLAGS) -o sike434/test_SIKE $(ARM_SETTING)
+	$(CC) $(CFLAGS) -L./lib434 tests/test_ISOGENYp434.c tests/test_extras.c -lsidh $(LDFLAGS) -o sike434/test_ISOGENY $(ARM_SETTING)
 	$(CC) $(CFLAGS) -L./lib434comp tests/test_SIDHp434_compressed.c tests/test_extras.c -lsidh $(LDFLAGS) -o sidh434_compressed/test_SIDH $(ARM_SETTING)
 	$(CC) $(CFLAGS) -L./lib434comp tests/test_SIKEp434_compressed.c tests/test_extras.c -lsidh $(LDFLAGS) -o sike434_compressed/test_SIKE $(ARM_SETTING)
 	$(CC) $(CFLAGS) -L./lib434 tests/PQCtestKAT_kem434.c tests/rng/rng.c -lsidh_for_testing $(LDFLAGS) -o sike434/PQCtestKAT_kem $(ARM_SETTING)
